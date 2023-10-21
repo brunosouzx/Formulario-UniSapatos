@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="container">
+        <h2>Formulario de Compra</h2>
+        <form action="#" method="post">
+            <fieldset>
+                <legend>Informações Pessoais</legend>
+                <div class="form-group">
+                    <label for="nome">Nome:</label>
+                    <input type="text" class="inpt" id="nome" name="nome" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name "email" required>
+                </div>
+                <div class="form-group">
+                    <label for="cpf">cpf:</label>
+                    <input type="text" name="cpf" \
+			pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" \
+			title="Digite um CPF no formato: xxx.xxx.xxx-xx">
+                </div>
+                <div class="form-group">
+                    <label for="numcel">Celular:</label>
+                    <input type="tel" id="numcel" name="celular" required>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Informações de pagamento</legend>
+                <div class="form-group">
+                    <label for="tenis">Escolha o Produto:</label>
+                    <select id="tenis" placeholder="Escolha um Tenis" name="tenis"  required>
+
+                        <option value="" disabled selected>Selecione um Tenis</option>
+
+                        <optgroup label="Tenis Maculino" ></optgroup>
+                        <option value="645.90">Tênis Nike Air Max Branco</option>
+                        <option value="525.49">Tênis Adidas Casual</option>
+
+                        <optgroup label="Tenis Feminino" ></optgroup>
+                        <option value="597.99">Tênis Puma Feminino</option>
+                        <option value="480.99">Tênis Nike Feminino</option>
+
+                        <optgroup label="Tenis Infantil" ></optgroup>
+                        <option value="330.99">Tênis Infantil Adidas</option>
+                        <option value="380.90">Tênis Infantil Puma</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="qntProduto">Qnt produto:</label>
+                    <input type="number" id="qntProduto" name="qntProduto" value="1" min="1" max="10">
+                </div>
+
+                <div class="form-group">
+                    <label for="qntProduto">tamanho do sapato:</label>
+                    <select name="" id="">
+                        <option value="9">36</option>
+                        <option value="8">37</option>
+                        <option value="7">38</option>
+                        <option value="6">39</option>
+                        <option value="5">40</option>
+                        <option value="4">41</option>
+                        <option value="3">42</option>
+                        <option value="2">43</option>
+                        <option value="1">44</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="resultado">Total da Compra:</label>
+                    <output id="resultado">Aqui será exibido o resultado.</output>
+                </div>
+                
+           
+            </fieldset>
+
+            <fieldset>
+                <legend>Descoberta do Site (Opcional)</legend>
+                <div class="form-group">
+                    <label for="descoberta">Como você descobriu o site?</label>
+                    <input list="descoberta" name="descoberta">
+                    <datalist id="descoberta">
+                        <option value="Por um amigo">
+                        <option value="Em uma busca na internet">
+                        <option value="Nas redes sociais">
+                        <option value="Outro">
+                    </datalist>
+                </div>
+            </fieldset>
+
+            <div class="form-group botao">
+                <button type="submit"class="bnt">Registrar Pedido</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        let tenis = document.querySelector("#tenis");
+        let qntProduto = document.querySelector("#qntProduto");
+        let resultado = document.querySelector("#resultado");
+        // Adicione um evento de mudança ao campo #tenis
+        tenis.addEventListener("change", atualizarResultado);
+        
+        // Adicione um evento de mudança ao campo #qntProduto
+        qntProduto.addEventListener("change", atualizarResultado);
+        
+            function atualizarResultado() {
+                let valorTenis = parseFloat(tenis.value);
+                let quantidade = parseInt(qntProduto.value);
+        
+                if (!isNaN(valorTenis) && !isNaN(quantidade)) {
+                    let total = valorTenis * quantidade;
+                    resultado.textContent = `Total: R$ ${total.toFixed(2)}`;
+                } else {
+                    resultado.textContent = "Aqui será exibido o resultado.";
+                }
+            }
+        
+    </script>
+</body>
+
+</html>
