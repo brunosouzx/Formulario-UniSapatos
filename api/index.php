@@ -88,6 +88,14 @@ body {
 .bnt:hover{
     background-color: #009940;
 }
+footer {
+  background-color:rgba(0, 0, 0, 0.962);
+  color: #fff;
+  margin: auto;
+  text-align: center;
+  font-size: 19px;
+  padding: 12px;
+}
     </style>
 </head>
 <body>
@@ -234,7 +242,9 @@ body {
         ?>
     </div>
 
-
+    <footer>
+        Desenvolvido por Bruno Rodrigues, Carlos Eduardo, Danilo José, Guilherme Melo e José Lopes
+    </footer>
     <script>
         let tenis = document.querySelector("#tenis");
         let qntProduto = document.querySelector("#qntProduto");
