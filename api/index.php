@@ -5,6 +5,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Formulário de compra</title>
+    <style>
+        
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0D1821;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 500px;
+    background-color: #F0F4EF;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 80px; 
+    margin-top: 30px;
+}
+.inpt{
+    width: 90%;
+}
+.container h2 {
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group select,
+.form-group textarea {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-group select {
+    height: 40px;
+}
+
+.form-group textarea {
+    height: 100px;
+}
+
+.form-group input[type="submit"] {
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-group input[type="submit"]:hover {
+    background-color: #b30000;
+}
+
+.botao{
+    display: grid;
+    padding-top: 30px;
+    justify-content: center;
+    margin-bottom: -2px;
+}
+.bnt{
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    background-color: #02b14b;
+    border: none;
+    cursor: pointer;
+}
+.bnt:hover{
+    background-color: #009940;
+}
+    </style>
 </head>
 <body>
     
