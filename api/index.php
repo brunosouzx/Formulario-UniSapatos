@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
+    <title>Formulário de compra</title>
 </head>
 <body>
     
     <div class="container">
         <h2>Formulario de Compra</h2>
-        <form action="#" method="post">
+        <form action="formulario.php" method="post">
             <fieldset>
                 <legend>Informações Pessoais</legend>
                 <div class="form-group">
@@ -20,7 +20,7 @@
 
                 <div class="form-group">
                     <label for="email">E-mail:</label>
-                    <input type="email" id="email" name "email" required>
+                    <input type="email" id="email" name= "email" required>
                 </div>
                 <div class="form-group">
                     <label for="cpf">cpf:</label>
@@ -57,30 +57,34 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="qntProduto">Qnt produto:</label>
+                    <label for="qntProduto">Quantidade do produto:</label>
                     <input type="number" id="qntProduto" name="qntProduto" value="1" min="1" max="10">
                 </div>
 
                 <div class="form-group">
-                    <label for="qntProduto">tamanho do sapato:</label>
-                    <select name="" id="">
-                        <option value="9">36</option>
-                        <option value="8">37</option>
-                        <option value="7">38</option>
-                        <option value="6">39</option>
-                        <option value="5">40</option>
-                        <option value="4">41</option>
-                        <option value="3">42</option>
-                        <option value="2">43</option>
-                        <option value="1">44</option>
+                    <label for="qntProduto">Tamanho do sapato:</label>
+                    <select name="tamanho" id="tamanho">
+                        <option value="36">36</option>
+                        <option value="37">37</option>
+                        <option value="38">38</option>
+                        <option value="39">39</option>
+                        <option value="40">40</option>
+                        <option value="41">41</option>
+                        <option value="42">42</option>
+                        <option value="43">43</option>
+                        <option value="44">44</option>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label for="resultado">Total da Compra:</label>
-                    <output id="resultado">Aqui será exibido o resultado.</output>
+                    <output id="resultado" name="total">Aqui será exibido o resultado.</output>
                 </div>
                 
+                <div class="form-group">
+                    <label for="observacoes">Observações:</label>
+                    <textarea id="observacoes" name="observacoes" required></textarea>
+                </div>
            
             </fieldset>
 
@@ -99,10 +103,53 @@
             </fieldset>
 
             <div class="form-group botao">
-                <button type="submit"class="bnt">Registrar Pedido</button>
+                <button type="submit"class="bnt" name="enviar">Registrar Pedido</button>
             </div>
         </form>
+        <?php 
+        if(isset($_POST['enviar'])) {
+            $nome = $_POST['nome'];
+            $email = $_POST['email'];
+            $cpf = $_POST['cpf'];
+            $celular = $_POST['celular'];
+            $tenis = $_POST['tenis'];
+            $qnt = $_POST['qntProduto'];
+            $tamanho = $_POST['tamanho'];
+            $obs = $_POST['observacoes'];
+            $nomeTenis = "";
+
+            switch ($tenis) {
+                case '645.90':
+                    $nomeTenis = "Tênis Nike Air Max Branco";
+                    break;
+                case '525.49':
+                    $nomeTenis = "Tênis Adidas Casual";
+                    break;
+                case "597.99":
+                    $nomeTenis = "Tênis Puma Feminino";
+                    break;
+                case "480.99":
+                    $nomeTenis = "Tênis Nike Feminino";
+                    break;
+                case "330.99":
+                    $nomeTenis = "Tênis Infantil Adidas";
+                    break;
+                case "380.90":
+                    $nomeTenis = "Tênis Infantil Puma";
+                    break;
+                default:
+                    break;
+            }
+
+            echo "<h2>Olá, $nome!</h2> <br> <h4>Sua compra de $qnt $nomeTenis de tamanho $tamanho foi registrada com sucesso!</h4>";
+            echo "<p>Seu email $email será utilizado para enviar atualizações da entrega!</p>";
+            echo "<p>Seu cpf $cpf está seguro no nosso banco de dados!</p>";
+            echo "<p>Iremos enviar notificações para seu celular: $celular com atualizações da compra</p>";
+            echo "<p>Sua observação ($obs) será considerada!</p>";
+        }
+        ?>
     </div>
+
 
     <script>
         let tenis = document.querySelector("#tenis");
