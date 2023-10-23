@@ -102,7 +102,7 @@ footer {
     
     <div class="container">
         <h2>Formulario de Compra</h2>
-        <form action="formulario.php" method="post">
+        <form action="index.php" method="post">
             <fieldset>
                 <legend>Informações Pessoais</legend>
                 <div class="form-group">
